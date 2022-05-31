@@ -20,7 +20,7 @@ class Parking_Spots:
  
     # free the occupied parking spot
     # and add it to the heap memory
-    def free_parking_spot(self, released_spot):
+    def vacate_parking_spot(self, released_spot):
         heapq.heappush(self.spots, released_spot)
     
     # assign parking spot and return
@@ -30,6 +30,6 @@ class Parking_Spots:
     
     # print the list of available spots
     # currently in the system
-    def print_spots(self):
-        print(self.spots)
+    def get_spots(self):
+        return self.spots
         
