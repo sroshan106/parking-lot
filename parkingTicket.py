@@ -25,3 +25,5 @@ class Parking_Ticket:
     def get_ticket_details(self):
         return [self.__vehicle_number,self.__person_age];
     
+    def get_parking_spot(self):
+        return self.__parking_spot

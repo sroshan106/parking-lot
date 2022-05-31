@@ -48,6 +48,8 @@ class ParkingLot:
             self.increment_occupied_count();
         else :
             self.__spot_instance.vacate_parking_spot(currentFreeSpot)
+        
+        return currentFreeSpot
     
     def deallocate_parking(self,spot):
         if spot not in self.__active_tickets:
@@ -61,37 +63,38 @@ class ParkingLot:
         self.__spot_instance.vacate_parking_spot(spot)
         
         self.decrement_occupied_count();
+        
+        return [vehicle_number,person_age]
     
+    def Slot_numbers_for_driver_of_age(self,age):
+        
+        active_spots = self.__active_tickets
+        slot_numbers = []
+        
+        for current_spot in active_spots:
+            vehicle_number,driver_age = active_spots[current_spot].get_ticket_details()
+            if driver_age == age:
+                slot_numbers.append(active_spots[current_spot].get_parking_spot())
+        return slot_numbers 
+    
+    def Slot_number_for_car_with_number(self,number):
+        
+        active_spots = self.__active_tickets
 
-ob = ParkingLot(10)
+        for current_spot in active_spots:
+            vehicle_number,driver_age = active_spots[current_spot].get_ticket_details()
+            if vehicle_number == number:
+                return active_spots[current_spot].get_parking_spot()
+        return -1
 
-ob.print_details()
-print (" ***************************** ")
-
-ob.allocate_parking("asdasd", 42)
-
-ob.print_details()
-print (" ***************************** ")
-
-
-ob.allocate_parking("Fasd asdasd asda", 51)
-
-ob.print_details()
-print (" ***************************** ")
-
-
-ob.allocate_parking("asdasd", 32)
-
-ob.print_details()
-print (" ***************************** ")
-
-
-ob.deallocate_parking(2)
-
-ob.print_details()
-print (" ***************************** ")
-
-ob.allocate_parking("testing new version", 91)
-
-ob.print_details()
-print (" ***************************** ")
+    def Vehicle_registration_number_for_driver_of_age(self,age):
+        
+        active_spots = self.__active_tickets
+        vehicle_numbers = []
+        
+        for current_spot in active_spots:
+            vehicle_number,driver_age = active_spots[current_spot].get_ticket_details()
+            if driver_age == age:
+                vehicle_numbers.append(vehicle_number)
+        return vehicle_numbers
+    
