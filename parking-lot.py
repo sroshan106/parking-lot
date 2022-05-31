@@ -10,8 +10,7 @@ class ParkingLot:
         self.__total_capacity = total_capacity
         self.__vehicle_count = 0
         self.__spot_instance = parkingSpot.Parking_Spots(total_capacity)
-        self.__spot_instance.Print();
-
+        # self.__spot_instance.print_spots();
 
     # Check if parking is full
     def is_full(self):
