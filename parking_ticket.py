@@ -5,6 +5,7 @@ import datetime;
 # managed by this class
 class Parking_Ticket:
     
+    # Global ticket ID counter
     next_ticket_id = 1
     
     # Class Constructor used to initlize data
@@ -22,8 +23,10 @@ class Parking_Ticket:
         self.__date_time = datetime.datetime.now()
         self.__parking_spot = parking_spot
     
+    # Return Parking_Ticket detaiks
     def get_ticket_details(self):
         return [self.__vehicle_number,self.__person_age];
     
+    # Returns parking spot occupied by current ticket
     def get_parking_spot(self):
         return self.__parking_spot
